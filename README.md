@@ -54,34 +54,33 @@
 
 Выполните 
 ~~~
-sudo apt-get install name
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install name1
+sudo apt-get install mariadb-client mariadb-server
+git clone https://github.com/Sinclear/default_readme
+cd default_readme
+...
 ~~~
-### База данных PostgreSQL
+### База данных
 
-Необходимо создать пустую базу данных PostgreSQL, а подключение к базе прописать в конфигурационный файл сервиса по адресу: папка_сервиса/config/db.php
+Необходимо создать пустую базу данных, а подключение к базе прописать в конфигурационный файл сервиса по адресу: папка_сервиса/...
+~~~
+sudo systemctl restart mariadb
+sudo mysql_secure_installation
+mysql -u root -p
+mypassword
+CREATE DATABASE mynewdb;
+quit
+~~~
 ### Выполнение миграций
 
 Для заполнения базы данных системной информацией выполните в корневой папке сервиса: 
 ~~~
-./yii migrate 
+mysql -u root -p -f mynewdb < папка_сервиса/...
+mypassword
 ~~~
 и согласитесь с запросом
-### Запуск очередей
-
-Для запуска очередей обработки выполните в корневой папке сервиса: 
-~~~
-./yii queue/listen & 
-~~~
-
-столько раз, сколько демонов обработки вы хотите
-### Веб-сервер
-
-Настройте ваш веб-сервер так, чтобы папка_сервиса/web была доступна через веб-сервер.
-
-Или можно запустить тестовый стенд командой:
-~~~
-./yii serve/index
-~~~
 
 ### Установка зависимостей проекта
 
