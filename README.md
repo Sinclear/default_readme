@@ -94,5 +94,5 @@ composer install
 ~~~
 
 <h3>Разработчики</h3>
-<h4>Иванов Иван fullstack @testname1! (telegramm)</h4>
+<h4>Иванов Иван fullstack [@testname1!] (https://t.me/testname1!)</h4>
 
